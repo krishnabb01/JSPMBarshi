@@ -1,0 +1,396 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bb                 |
+| bb1                |
+| de                 |
+| demo               |
+| demo1              |
+| demo5              |
+| fuel               |
+| impcat             |
+| information_schema |
+| mysql              |
+| nani               |
+| performance_schema |
+| projectdemo        |
+| sakila             |
+| servlet            |
+| skn                |
+| skn1               |
+| skn2               |
+| springdemo         |
+| sys                |
+| world              |
++--------------------+
+21 rows in set (0.02 sec)
+
+mysql> create database JspmBarshi;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bb                 |
+| bb1                |
+| de                 |
+| demo               |
+| demo1              |
+| demo5              |
+| fuel               |
+| impcat             |
+| information_schema |
+| jspmbarshi         |
+| mysql              |
+| nani               |
+| performance_schema |
+| projectdemo        |
+| sakila             |
+| servlet            |
+| skn                |
+| skn1               |
+| skn2               |
+| springdemo         |
+| sys                |
+| world              |
++--------------------+
+22 rows in set (0.00 sec)
+
+mysql> create table tblStudent(id int ,name varchar(50),city varchar(50),dept varchar(50));
+ERROR 1046 (3D000): No database selected
+mysql> use JspmBarshi;
+Database changed
+mysql> create table tblStudent(id int ,name varchar(50),city varchar(50),dept varchar(50));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_jspmbarshi |
++----------------------+
+| tblstudent           |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> desc tblStudent;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(50) | YES  |     | NULL    |       |
+| dept  | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> create database jspm;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bb                 |
+| bb1                |
+| de                 |
+| demo               |
+| demo1              |
+| demo5              |
+| fuel               |
+| impcat             |
+| information_schema |
+| jspm               |
+| jspmbarshi         |
+| mysql              |
+| nani               |
+| performance_schema |
+| projectdemo        |
+| sakila             |
+| servlet            |
+| skn                |
+| skn1               |
+| skn2               |
+| springdemo         |
+| sys                |
+| world              |
++--------------------+
+23 rows in set (0.00 sec)
+
+mysql> use jspm;
+Database changed
+mysql> create table tblEmployee( id int ,name varchar(50),salaray decimal);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> shoe tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shoe tables' at line 1
+mysql> show tables;
++----------------+
+| Tables_in_jspm |
++----------------+
+| tblemployee    |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> desc tblEmployee;
++---------+---------------+------+-----+---------+-------+
+| Field   | Type          | Null | Key | Default | Extra |
++---------+---------------+------+-----+---------+-------+
+| id      | int           | YES  |     | NULL    |       |
+| name    | varchar(50)   | YES  |     | NULL    |       |
+| salaray | decimal(10,0) | YES  |     | NULL    |       |
++---------+---------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> use JspmBarshi;
+Database changed
+mysql> desc tblstudent;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(50) | YES  |     | NULL    |       |
+| dept  | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into tblStudent values(101,"Rohan","Madha",'CSE');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into tblStudent (id,name,city,dept) values(102,'Omkar',"Jalna","CSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select id,name,city,dept from tblStudent;
++------+-------+-------+------+
+| id   | name  | city  | dept |
++------+-------+-------+------+
+|  101 | Rohan | Madha | CSE  |
+|  102 | Omkar | Jalna | CSE  |
++------+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from tblStudent;
++------+-------+-------+------+
+| id   | name  | city  | dept |
++------+-------+-------+------+
+|  101 | Rohan | Madha | CSE  |
+|  102 | Omkar | Jalna | CSE  |
++------+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> insert into tblStudent(id,name) values(103,'Mahi');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblstudent;
++------+-------+-------+------+
+| id   | name  | city  | dept |
++------+-------+-------+------+
+|  101 | Rohan | Madha | CSE  |
+|  102 | Omkar | Jalna | CSE  |
+|  103 | Mahi  | NULL  | NULL |
++------+-------+-------+------+
+3 rows in set (0.00 sec)
+
+mysql> insert into tblStudent (dept,name,id) values('Mech','Akash',104);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblStudent;
++------+-------+-------+------+
+| id   | name  | city  | dept |
++------+-------+-------+------+
+|  101 | Rohan | Madha | CSE  |
+|  102 | Omkar | Jalna | CSE  |
+|  103 | Mahi  | NULL  | NULL |
+|  104 | Akash | NULL  | Mech |
++------+-------+-------+------+
+4 rows in set (0.00 sec)
+
+mysql> insert into tblStudent (id,name,city,dept) values(102,'Omkar',"Jalna","CSE");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblStudent;
++------+-------+-------+------+
+| id   | name  | city  | dept |
++------+-------+-------+------+
+|  101 | Rohan | Madha | CSE  |
+|  102 | Omkar | Jalna | CSE  |
+|  103 | Mahi  | NULL  | NULL |
+|  104 | Akash | NULL  | Mech |
+|  102 | Omkar | Jalna | CSE  |
++------+-------+-------+------+
+5 rows in set (0.00 sec)
+
+mysql> insert into tblStudent (id,name,city,dept) values(106,'Aarti',"Mumbai","CSE"),(107,'Nani','Hyd','CSE');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into tblStudent  values(108,'joe',"Delhi","Mech"),(109,'Vijay','Hyd','CSE');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select  * from tblStudent;
++------+-------+--------+------+
+| id   | name  | city   | dept |
++------+-------+--------+------+
+|  101 | Rohan | Madha  | CSE  |
+|  102 | Omkar | Jalna  | CSE  |
+|  103 | Mahi  | NULL   | NULL |
+|  104 | Akash | NULL   | Mech |
+|  102 | Omkar | Jalna  | CSE  |
+|  106 | Aarti | Mumbai | CSE  |
+|  107 | Nani  | Hyd    | CSE  |
+|  108 | joe   | Delhi  | Mech |
+|  109 | Vijay | Hyd    | CSE  |
++------+-------+--------+------+
+9 rows in set (0.00 sec)
+
+mysql> insert into tblStudent (id) values(109),(110);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into tblStudent values(111,'raj','Hyd');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into tblStudent values(111,'raj');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into tblStudent(name,city) values(111,'raj');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblstudent;
++------+-------+--------+------+
+| id   | name  | city   | dept |
++------+-------+--------+------+
+|  101 | Rohan | Madha  | CSE  |
+|  102 | Omkar | Jalna  | CSE  |
+|  103 | Mahi  | NULL   | NULL |
+|  104 | Akash | NULL   | Mech |
+|  102 | Omkar | Jalna  | CSE  |
+|  106 | Aarti | Mumbai | CSE  |
+|  107 | Nani  | Hyd    | CSE  |
+|  108 | joe   | Delhi  | Mech |
+|  109 | Vijay | Hyd    | CSE  |
+|  109 | NULL  | NULL   | NULL |
+|  110 | NULL  | NULL   | NULL |
+| NULL | 111   | raj    | NULL |
++------+-------+--------+------+
+12 rows in set (0.00 sec)
+
+mysql> insert into tblStudent(name,city) values(111,'raj',102);
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bb                 |
+| bb1                |
+| de                 |
+| demo               |
+| demo1              |
+| demo5              |
+| fuel               |
+| impcat             |
+| information_schema |
+| jspm               |
+| jspmbarshi         |
+| mysql              |
+| nani               |
+| performance_schema |
+| projectdemo        |
+| sakila             |
+| servlet            |
+| skn                |
+| skn1               |
+| skn2               |
+| springdemo         |
+| sys                |
+| world              |
++--------------------+
+23 rows in set (0.00 sec)
+
+mysql> select id,name,city,dept from tblstudent where id=108;
++------+------+-------+------+
+| id   | name | city  | dept |
++------+------+-------+------+
+|  108 | joe  | Delhi | Mech |
++------+------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> delete from tblStudent where id=108;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblStudent;
++------+-------+--------+------+
+| id   | name  | city   | dept |
++------+-------+--------+------+
+|  101 | Rohan | Madha  | CSE  |
+|  102 | Omkar | Jalna  | CSE  |
+|  103 | Mahi  | NULL   | NULL |
+|  104 | Akash | NULL   | Mech |
+|  102 | Omkar | Jalna  | CSE  |
+|  106 | Aarti | Mumbai | CSE  |
+|  107 | Nani  | Hyd    | CSE  |
+|  109 | Vijay | Hyd    | CSE  |
+|  109 | NULL  | NULL   | NULL |
+|  110 | NULL  | NULL   | NULL |
+| NULL | 111   | raj    | NULL |
++------+-------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> update tblStudent set name="krishna" where id =107;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from tblStudent;
++------+---------+--------+------+
+| id   | name    | city   | dept |
++------+---------+--------+------+
+|  101 | Rohan   | Madha  | CSE  |
+|  102 | Omkar   | Jalna  | CSE  |
+|  103 | Mahi    | NULL   | NULL |
+|  104 | Akash   | NULL   | Mech |
+|  102 | Omkar   | Jalna  | CSE  |
+|  106 | Aarti   | Mumbai | CSE  |
+|  107 | krishna | Hyd    | CSE  |
+|  109 | Vijay   | Hyd    | CSE  |
+|  109 | NULL    | NULL   | NULL |
+|  110 | NULL    | NULL   | NULL |
+| NULL | 111     | raj    | NULL |
++------+---------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> update tblStudent set dept="krishna" where id =110;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from tblStudent;
++------+---------+--------+---------+
+| id   | name    | city   | dept    |
++------+---------+--------+---------+
+|  101 | Rohan   | Madha  | CSE     |
+|  102 | Omkar   | Jalna  | CSE     |
+|  103 | Mahi    | NULL   | NULL    |
+|  104 | Akash   | NULL   | Mech    |
+|  102 | Omkar   | Jalna  | CSE     |
+|  106 | Aarti   | Mumbai | CSE     |
+|  107 | krishna | Hyd    | CSE     |
+|  109 | Vijay   | Hyd    | CSE     |
+|  109 | NULL    | NULL   | NULL    |
+|  110 | NULL    | NULL   | krishna |
+| NULL | 111     | raj    | NULL    |
++------+---------+--------+---------+
+11 rows in set (0.00 sec)
+
+mysql>
