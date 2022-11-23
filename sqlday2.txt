@@ -1,0 +1,479 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use jspmbarshi;
+Database changed
+mysql> select * from tblstudent;
++------+---------+--------+---------+
+| id   | name    | city   | dept    |
++------+---------+--------+---------+
+|  101 | Rohan   | Madha  | CSE     |
+|  102 | Omkar   | Jalna  | CSE     |
+|  103 | Mahi    | NULL   | NULL    |
+|  104 | Akash   | NULL   | Mech    |
+|  102 | Omkar   | Jalna  | CSE     |
+|  106 | Aarti   | Mumbai | CSE     |
+|  107 | krishna | Hyd    | CSE     |
+|  109 | Vijay   | Hyd    | CSE     |
+|  109 | NULL    | NULL   | NULL    |
+|  110 | NULL    | NULL   | krishna |
+| NULL | 111     | raj    | NULL    |
++------+---------+--------+---------+
+11 rows in set (0.01 sec)
+
+mysql> select id,name ,city,dept from tblstudent where name='omkar';
++------+-------+-------+------+
+| id   | name  | city  | dept |
++------+-------+-------+------+
+|  102 | Omkar | Jalna | CSE  |
+|  102 | Omkar | Jalna | CSE  |
++------+-------+-------+------+
+2 rows in set (0.00 sec)
+
+mysql> select  id StudentId,name as StudentName,city StudentCity from tblStudent;
++-----------+-------------+-------------+
+| StudentId | StudentName | StudentCity |
++-----------+-------------+-------------+
+|       101 | Rohan       | Madha       |
+|       102 | Omkar       | Jalna       |
+|       103 | Mahi        | NULL        |
+|       104 | Akash       | NULL        |
+|       102 | Omkar       | Jalna       |
+|       106 | Aarti       | Mumbai      |
+|       107 | krishna     | Hyd         |
+|       109 | Vijay       | Hyd         |
+|       109 | NULL        | NULL        |
+|       110 | NULL        | NULL        |
+|      NULL | 111         | raj         |
++-----------+-------------+-------------+
+11 rows in set (0.00 sec)
+
+mysql> desc tblstudent;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(50) | YES  |     | NULL    |       |
+| dept  | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> select * from tblstudent;
++------+---------+--------+---------+
+| id   | name    | city   | dept    |
++------+---------+--------+---------+
+|  101 | Rohan   | Madha  | CSE     |
+|  102 | Omkar   | Jalna  | CSE     |
+|  103 | Mahi    | NULL   | NULL    |
+|  104 | Akash   | NULL   | Mech    |
+|  102 | Omkar   | Jalna  | CSE     |
+|  106 | Aarti   | Mumbai | CSE     |
+|  107 | krishna | Hyd    | CSE     |
+|  109 | Vijay   | Hyd    | CSE     |
+|  109 | NULL    | NULL   | NULL    |
+|  110 | NULL    | NULL   | krishna |
+| NULL | 111     | raj    | NULL    |
++------+---------+--------+---------+
+11 rows in set (0.00 sec)
+
+mysql> delete from tblstudent where id=110;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from tblstudent;
++------+---------+--------+------+
+| id   | name    | city   | dept |
++------+---------+--------+------+
+|  101 | Rohan   | Madha  | CSE  |
+|  102 | Omkar   | Jalna  | CSE  |
+|  103 | Mahi    | NULL   | NULL |
+|  104 | Akash   | NULL   | Mech |
+|  102 | Omkar   | Jalna  | CSE  |
+|  106 | Aarti   | Mumbai | CSE  |
+|  107 | krishna | Hyd    | CSE  |
+|  109 | Vijay   | Hyd    | CSE  |
+|  109 | NULL    | NULL   | NULL |
+| NULL | 111     | raj    | NULL |
++------+---------+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> delete from tblstudent where id=null;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from tblstudent;
++------+---------+--------+------+
+| id   | name    | city   | dept |
++------+---------+--------+------+
+|  101 | Rohan   | Madha  | CSE  |
+|  102 | Omkar   | Jalna  | CSE  |
+|  103 | Mahi    | NULL   | NULL |
+|  104 | Akash   | NULL   | Mech |
+|  102 | Omkar   | Jalna  | CSE  |
+|  106 | Aarti   | Mumbai | CSE  |
+|  107 | krishna | Hyd    | CSE  |
+|  109 | Vijay   | Hyd    | CSE  |
+|  109 | NULL    | NULL   | NULL |
+| NULL | 111     | raj    | NULL |
++------+---------+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> delete from tblstudent where id is null;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblstudent;
++------+---------+--------+------+
+| id   | name    | city   | dept |
++------+---------+--------+------+
+|  101 | Rohan   | Madha  | CSE  |
+|  102 | Omkar   | Jalna  | CSE  |
+|  103 | Mahi    | NULL   | NULL |
+|  104 | Akash   | NULL   | Mech |
+|  102 | Omkar   | Jalna  | CSE  |
+|  106 | Aarti   | Mumbai | CSE  |
+|  107 | krishna | Hyd    | CSE  |
+|  109 | Vijay   | Hyd    | CSE  |
+|  109 | NULL    | NULL   | NULL |
++------+---------+--------+------+
+9 rows in set (0.00 sec)
+
+mysql> update tblstudent set  city="pune" ;
+Query OK, 9 rows affected (0.00 sec)
+Rows matched: 9  Changed: 9  Warnings: 0
+
+mysql> select * from tblstudent;
++------+---------+------+------+
+| id   | name    | city | dept |
++------+---------+------+------+
+|  101 | Rohan   | pune | CSE  |
+|  102 | Omkar   | pune | CSE  |
+|  103 | Mahi    | pune | NULL |
+|  104 | Akash   | pune | Mech |
+|  102 | Omkar   | pune | CSE  |
+|  106 | Aarti   | pune | CSE  |
+|  107 | krishna | pune | CSE  |
+|  109 | Vijay   | pune | CSE  |
+|  109 | NULL    | pune | NULL |
++------+---------+------+------+
+9 rows in set (0.00 sec)
+
+mysql> update tblstudent set  city="hyd" where id=104 ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from tblstudent;
++------+---------+------+------+
+| id   | name    | city | dept |
++------+---------+------+------+
+|  101 | Rohan   | pune | CSE  |
+|  102 | Omkar   | pune | CSE  |
+|  103 | Mahi    | pune | NULL |
+|  104 | Akash   | hyd  | Mech |
+|  102 | Omkar   | pune | CSE  |
+|  106 | Aarti   | pune | CSE  |
+|  107 | krishna | pune | CSE  |
+|  109 | Vijay   | pune | CSE  |
+|  109 | NULL    | pune | NULL |
++------+---------+------+------+
+9 rows in set (0.00 sec)
+
+mysql> update tblstudent set  city="barshi",dept='Mech' where name is null  ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from tblstudent;
++------+---------+--------+------+
+| id   | name    | city   | dept |
++------+---------+--------+------+
+|  101 | Rohan   | pune   | CSE  |
+|  102 | Omkar   | pune   | CSE  |
+|  103 | Mahi    | pune   | NULL |
+|  104 | Akash   | hyd    | Mech |
+|  102 | Omkar   | pune   | CSE  |
+|  106 | Aarti   | pune   | CSE  |
+|  107 | krishna | pune   | CSE  |
+|  109 | Vijay   | pune   | CSE  |
+|  109 | NULL    | barshi | Mech |
++------+---------+--------+------+
+9 rows in set (0.00 sec)
+
+mysql> insert into tblstudent values(109,'nani','hyd','IT');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblstudent;
++------+---------+--------+------+
+| id   | name    | city   | dept |
++------+---------+--------+------+
+|  101 | Rohan   | pune   | CSE  |
+|  102 | Omkar   | pune   | CSE  |
+|  103 | Mahi    | pune   | NULL |
+|  104 | Akash   | hyd    | Mech |
+|  102 | Omkar   | pune   | CSE  |
+|  106 | Aarti   | pune   | CSE  |
+|  107 | krishna | pune   | CSE  |
+|  109 | Vijay   | pune   | CSE  |
+|  109 | NULL    | barshi | Mech |
+|  109 | nani    | hyd    | IT   |
++------+---------+--------+------+
+10 rows in set (0.00 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_jspmbarshi |
++----------------------+
+| tblstudent           |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> create table tblEmployee(id int  unique,name varchar(50),salary decimal);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into tblemployee values(101,'nani',15423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into tblemployee values(101,'nani',15423);
+ERROR 1062 (23000): Duplicate entry '101' for key 'tblemployee.id'
+mysql> insert into tblemployee values(102,'nani',15423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> desc tblemployee;
++--------+---------------+------+-----+---------+-------+
+| Field  | Type          | Null | Key | Default | Extra |
++--------+---------------+------+-----+---------+-------+
+| id     | int           | YES  | UNI | NULL    |       |
+| name   | varchar(50)   | YES  |     | NULL    |       |
+| salary | decimal(10,0) | YES  |     | NULL    |       |
++--------+---------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> desc tblstudent;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | YES  |     | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| city  | varchar(50) | YES  |     | NULL    |       |
+| dept  | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> insert into tblemployee values(null,'nani',15423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into tblemployee values(null,'nani',15423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into tblemployee values(null,'nani',15423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblemployee;
++------+------+--------+
+| id   | name | salary |
++------+------+--------+
+|  101 | nani |  15423 |
+|  102 | nani |  15423 |
+| NULL | nani |  15423 |
+| NULL | nani |  15423 |
+| NULL | nani |  15423 |
++------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> create table tblDemo (id int unique,name varchar(50) not null,city varchar(50));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into tblemployee values(null,null,15423);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into tblDemo values(null,null,null);
+ERROR 1048 (23000): Column 'name' cannot be null
+mysql> insert into tblDemo values(null,'ajay',null);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> create table tbDemo1(id int unique not null,name varchar(50) not null);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> desc tblDemo1;
+ERROR 1146 (42S02): Table 'jspmbarshi.tbldemo1' doesn't exist
+mysql> desc tbDemo1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create table tblDemo1(id int primary key,name varchar(50) not null);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc tblDemo1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> insert into tbldemo values(101,"mahi");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> insert into tbldemo1 values(101,"mahi");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into tbldemo1 values(101,"mahi");
+ERROR 1062 (23000): Duplicate entry '101' for key 'tbldemo1.PRIMARY'
+mysql> insert into tbldemo1 values(null,"mahi");
+ERROR 1048 (23000): Column 'id' cannot be null
+mysql> create table tblstudent1(id  int primary key,name varchar(50) not null,city varchar(50),dept varchar(50),marks decimal,passY int,mail varchar(100) unique);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into tblstudent1 (id ,city) values(101,'pune');
+ERROR 1364 (HY000): Field 'name' doesn't have a default value
+mysql> insert into tblstudent1 (id ,name,city) values(101,'joe','Delhi^S');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tblstudent1;
++-----+------+--------+------+-------+-------+------+
+| id  | name | city   | dept | marks | passY | mail |
++-----+------+--------+------+-------+-------+------+
+| 101 | joe  | Delhi‼ | NULL |  NULL |  NULL | NULL |
++-----+------+--------+------+-------+-------+------+
+1 row in set (0.00 sec)
+
+mysql> desc tblstudent1;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| id    | int           | NO   | PRI | NULL    |       |
+| name  | varchar(50)   | NO   |     | NULL    |       |
+| city  | varchar(50)   | YES  |     | NULL    |       |
+| dept  | varchar(50)   | YES  |     | NULL    |       |
+| marks | decimal(10,0) | YES  |     | NULL    |       |
+| passY | int           | YES  |     | NULL    |       |
+| mail  | varchar(100)  | YES  | UNI | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+
+mysql> create table tblstudent2(id  int primary key,name varchar(50) primary key,city varchar(50),dept varchar(50),marks decimal,passY int,mail varchar(100) unique);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> create table tblstudent2(id  int primary key,name varchar(50) unique,city varchar(50),dept varchar(50),marks decimal,passY int,mail varchar(100) unique);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table tblstudent3(id  int primary key,name varchar(50) unique,city varchar(50),dept varchar(50) not null,marks decimal not null,passY int,mail varchar(100) unique);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc tblstudent2;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| id    | int           | NO   | PRI | NULL    |       |
+| name  | varchar(50)   | YES  | UNI | NULL    |       |
+| city  | varchar(50)   | YES  |     | NULL    |       |
+| dept  | varchar(50)   | YES  |     | NULL    |       |
+| marks | decimal(10,0) | YES  |     | NULL    |       |
+| passY | int           | YES  |     | NULL    |       |
+| mail  | varchar(100)  | YES  | UNI | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> desc tblstudent3;
++-------+---------------+------+-----+---------+-------+
+| Field | Type          | Null | Key | Default | Extra |
++-------+---------------+------+-----+---------+-------+
+| id    | int           | NO   | PRI | NULL    |       |
+| name  | varchar(50)   | YES  | UNI | NULL    |       |
+| city  | varchar(50)   | YES  |     | NULL    |       |
+| dept  | varchar(50)   | NO   |     | NULL    |       |
+| marks | decimal(10,0) | NO   |     | NULL    |       |
+| passY | int           | YES  |     | NULL    |       |
+| mail  | varchar(100)  | YES  | UNI | NULL    |       |
++-------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> create table demo (id int unique not null,name varchar(50) primary key)
+    -> ;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc demo;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | UNI | NULL    |       |
+| name  | varchar(50) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> create table demo1 (id int unique not null,name varchar(50) unique not null);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc demo1;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | NO   | UNI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+
+mysql> create table employee ( id int ,name varchar(50),dept varchar(50),primary  key(id ,name));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc employee;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | NO   | PRI | NULL    |       |
+| dept  | varchar(50) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> create table emp( id int unique,name varchar(50),country varchar(50) default 'India');
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc emp;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int         | YES  | UNI | NULL    |       |
+| name    | varchar(50) | YES  |     | NULL    |       |
+| country | varchar(50) | YES  |     | India   |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into emp (id,name) values(101,'Raj');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++------+------+---------+
+| id   | name | country |
++------+------+---------+
+|  101 | Raj  | India   |
++------+------+---------+
+1 row in set (0.00 sec)
+
+
+mysql> insert into emp (id,name,country) values(102,'bob','US');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from emp;
++------+------+---------+
+| id   | name | country |
++------+------+---------+
+|  101 | Raj  | India   |
+|  102 | bob  | US      |
++------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql>
